@@ -1,0 +1,39 @@
+$font:"Poppins", sans-serif;
+$font-size: 15px;
+$Red: hsl(0, 78%, 62%);
+$Cyan: hsl(180, 62%, 55%);
+$Orange: hsl(34, 97%, 64%);
+$Blue: hsl(212, 86%, 64%);
+$Grey-500: hsl(234, 12%, 34);
+$Grey-400: hsl(212, 6%, 44%);
+$White: hsl(0, 0%, 100%);
+$Weights: 200, 400, 600;
+
+
+/* CSS reset */
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $White;
+    font-family: $font;
+    font-size: $font-size;
+}
+
+.Team-card{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    max-width: 330px;
+    height: auto;
+    background-color: $White;
+    color: $Grey-500;
+    border-radius: 0.7rem;
+    padding: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
