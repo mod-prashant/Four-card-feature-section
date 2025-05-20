@@ -26,7 +26,7 @@ Users should be able to:
 
 ### Screenshot
 
-![Solution Screenshot](design/desktop-design.jpg)
+![Solution Screenshot](design/Screenshot.png)
 
 ### Links
 
@@ -42,13 +42,14 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - CSS Grid
+- Sass
 - Mobile-first workflow
 
 ### What I learned
 
 ### Continued development
 
-During this project, I refined my skills in using CSS Grid for creating responsive layouts and gained a deeper understanding of applying CSS custom properties effectively
+During this project, I refined my skills in using CSS Grid for creating responsive layouts and gained understanding of CSS preprocessor ("SASS").
 
 ### Useful resources
 
