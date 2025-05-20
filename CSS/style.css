@@ -1,29 +1,136 @@
-/* CSS reset */
-*,
-*::before,
-*::after {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  background-color: hsl(0, 0%, 100%);
   font-family: "Poppins", sans-serif;
-  font-size: 15px;
+  background: hsl(0, 0%, 98%);
+  color: hsl(234, 12%, 34%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100vh;
 }
 
-.Team-card {
+.container {
+  max-width: 1100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  text-align: center;
+}
+header h1 {
+  font-weight: 200;
+  font-size: 2rem;
+}
+header h1 strong {
+  font-weight: 600;
+  display: block;
+}
+header p {
+  font-size: 1rem;
+  color: hsl(229, 6%, 66%);
+  max-width: 600px;
+}
+
+.card-container {
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  max-width: 330px;
-  height: auto;
-  background-color: hsl(0, 0%, 100%);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 2rem;
+}
+.card-container .team {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  border-top: solid 0.3em;
+  border-color: hsl(0, 78%, 62%);
+  transform: translateY(50%);
+}
+.card-container .team:hover {
+  transform: translateY(40%);
+}
+.card-container .supervisor {
+  grid-column: 1/2;
+  grid-row: 2/3;
+  border-top: solid 0.3em;
+  border-color: hsl(180, 62%, 55%);
+}
+.card-container .calculator {
+  grid-column: 3/4;
+  grid-row: 2/3;
+  border-top: solid 0.3em;
+  border-color: hsl(212, 86%, 64%);
+}
+.card-container .karma {
+  grid-column: 2/3;
+  grid-row: 3/4;
+  border-top: solid 0.3em;
+  border-color: hsl(34, 97%, 64%);
+  transform: translateY(-50%);
+}
+.card-container .karma:hover {
+  transform: translateY(-60%);
+}
+.card-container article {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+.card-container article h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
   color: hsl(234, 12%, 34%);
-  border-radius: 0.7rem;
-  padding: 1rem;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+.card-container article p {
+  font-size: 0.9rem;
+  color: hsl(229, 6%, 66%);
+  margin-bottom: 1.5rem;
+}
+.card-container article img {
+  width: 50px;
+  align-self: flex-end;
+}
+.card-container article:hover {
+  transform: translateY(-10%);
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .card-container .team,
+  .card-container .supervisor,
+  .card-container .calculator,
+  .card-container .karma {
+    grid-column: auto;
+    grid-row: auto;
+    transform: none;
+  }
+  .card-container .team:hover,
+  .card-container .supervisor:hover,
+  .card-container .calculator:hover,
+  .card-container .karma:hover {
+    transform: translateY(-5%);
+  }
+  .card-container article img {
+    align-self: center;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

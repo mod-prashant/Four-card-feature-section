@@ -1,39 +1,162 @@
-$font:"Poppins", sans-serif;
-$font-size: 15px;
-$Red: hsl(0, 78%, 62%);
-$Cyan: hsl(180, 62%, 55%);
-$Orange: hsl(34, 97%, 64%);
-$Blue: hsl(212, 86%, 64%);
-$Grey-500: hsl(234, 12%, 34);
-$Grey-400: hsl(212, 6%, 44%);
-$White: hsl(0, 0%, 100%);
-$Weights: 200, 400, 600;
+// Colors
+$cyan: hsl(180, 62%, 55%);
+$red: hsl(0, 78%, 62%);
+$orange: hsl(34, 97%, 64%);
+$blue: hsl(212, 86%, 64%);
+$gray-blue: hsl(229, 6%, 66%);
+$dark-blue: hsl(234, 12%, 34%);
+$light-gray: hsl(0, 0%, 98%);
 
 
-/* CSS reset */
-*,
-*::before,
-*::after{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: $White;
-    font-family: $font;
-    font-size: $font-size;
+  font-family: 'Poppins', sans-serif;
+  background: $light-gray;
+  color: $dark-blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100vh;
 }
 
-.Team-card{
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    max-width: 330px;
-    height: auto;
-    background-color: $White;
-    color: $Grey-500;
-    border-radius: 0.7rem;
-    padding: 1rem;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+@mixin theme($theme) {
+  border-top: solid 0.3em;
+  border-color: $theme;
+}
+
+.container {
+  max-width: 1100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// Header
+header {
+  text-align: center;
+
+  h1 {
+    font-weight: 200;
+    font-size: 2rem;
+
+    strong {
+      font-weight: 600;
+      display: block;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    color: $gray-blue;
+    max-width: 600px;
+  }
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 2rem;
+
+  // Layout positions
+  .team {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    @include theme($red);
+    transform: translateY(50%); 
+     
+    &:hover {
+      transform: translateY(40%);
+    }
+  }
+
+  .supervisor {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    @include theme($cyan);
+  }
+
+  .calculator {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    @include theme($blue);
+  }
+
+  .karma {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    @include theme($orange);
+    transform: translateY(-50%);
+     
+    &:hover {
+      transform: translateY(-60%);
+    }
+  }
+
+  article {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: hsl(234, 12%, 34%);
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: hsl(229, 6%, 66%);
+      margin-bottom: 1.5rem;
+    }
+
+    img {
+      width: 50px;
+      align-self: flex-end;
+    }
+     
+    &:hover {
+      transform: translateY(-10%);
+    }
+  }
+}
+
+//mobile view
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    text-align: center;
+    margin-top: 3rem;
+
+    .team,
+    .supervisor,
+    .calculator,
+    .karma {
+        grid-column: auto;
+        grid-row: auto;
+        transform: none;
+       
+        &:hover {
+        transform: translateY(-5%);
+        }
+    }
+
+    article img {
+      align-self: center;
+    }
+  }
 }
